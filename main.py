@@ -88,42 +88,42 @@ async def puppy_only(i: discord.Interaction) -> bool:
 
 # ── OWNER — Reward ────────────────────────────────────────
 
-@tree.command(name='give-puppy-headpats', description='Give puppy gentle headpats 🐾')
+@tree.command(name='owner-give-puppy-headpats', description='Give puppy gentle headpats 🐾')
 async def cmd_headpat(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f"Aww! Who's a good puppy? 👑 {owner(i)} gave {puppy(i)} gentle headpats 🐾✨",
         'Give_Puppy_Headpats'))
 
-@tree.command(name='cuddles', description='Cuddle puppy close 💕')
+@tree.command(name='owner-cuddles', description='Cuddle puppy close 💕')
 async def cmd_cuddles(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'💕 {owner(i)} cuddles {puppy(i)} close 🥰',
         'Cuddles'))
 
-@tree.command(name='kiss-puppy-on-forehead', description='Kiss puppy on the forehead 💋')
+@tree.command(name='owner-kiss-puppy-on-forehead', description='Kiss puppy on the forehead 💋')
 async def cmd_kiss(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'💋 {owner(i)} kissed {puppy(i)} softly on the forehead. Such a good baby puppy.',
         'Kiss_Puppy_on_Forehead'))
 
-@tree.command(name='lift-puppy-like-simba', description='Lift puppy up like Simba 🦁')
+@tree.command(name='owner-lift-puppy-like-simba', description='Lift puppy up like Simba 🦁')
 async def cmd_simba(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'🦁 {owner(i)} lifts {puppy(i)} up proudly like Simba ✨',
         'Lift_Puppy_Like_Simba'))
 
-@tree.command(name='give-puppy-treats', description='Give puppy a treat 🦴')
+@tree.command(name='owner-give-puppy-treats', description='Give puppy a treat 🦴')
 async def cmd_treat(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'🦴 {owner(i)} gives {puppy(i)} a treat! Good puppy!',
         'Give_Puppy_Treats'))
 
-@tree.command(name='cuddled-sleep', description='Cuddle up to sleep with puppy 💤')
+@tree.command(name='owner-cuddled-sleep', description='Cuddle up to sleep with puppy 💤')
 async def cmd_sleep(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
@@ -132,14 +132,14 @@ async def cmd_sleep(i: discord.Interaction):
 
 # ── OWNER — Play ──────────────────────────────────────────
 
-@tree.command(name='order-puppy-to-fetch', description='Throw the ball for puppy 🎾')
+@tree.command(name='owner-order-puppy-to-fetch', description='Throw the ball for puppy 🎾')
 async def cmd_fetch(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'🎾 {owner(i)} throws the ball. Go fetch, {puppy(i)}!',
         'Order_Puppy_To_Fetch'))
 
-@tree.command(name='order-puppy-to-roll', description='Tell puppy to roll over 🌀')
+@tree.command(name='owner-order-puppy-to-roll', description='Tell puppy to roll over 🌀')
 async def cmd_roll(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
@@ -148,7 +148,7 @@ async def cmd_roll(i: discord.Interaction):
 
 # ── OWNER — Findom ────────────────────────────────────────
 
-@tree.command(name='order-puppy-to-send-money', description='Make puppy send tribute 💸')
+@tree.command(name='owner-order-puppy-to-send-money', description='Make puppy send tribute 💸')
 @app_commands.describe(amount='Amount in dollars e.g. 20')
 async def cmd_send(i: discord.Interaction, amount: str):
     if not await owner_only(i): return
@@ -158,21 +158,21 @@ async def cmd_send(i: discord.Interaction, amount: str):
 
 # ── OWNER — Femdom ────────────────────────────────────────
 
-@tree.command(name='cage-puppy', description='Cage the puppy 🔒')
+@tree.command(name='owner-cage-puppy', description='Cage the puppy 🔒')
 async def cmd_cage(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'🔒 {owner(i)} has caged {puppy(i)}. Bad Puppy!',
         'Cage_Puppy'))
 
-@tree.command(name='uncage-puppy', description='Release puppy from the cage 🔓')
+@tree.command(name='owner-uncage-puppy', description='Release puppy from the cage 🔓')
 async def cmd_uncage(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
         f'🔓 {owner(i)} has released {puppy(i)} from the cage 🐾',
         'Uncage_Puppy'))
 
-@tree.command(name='gag-puppy', description='Strap down puppy ⛓️')
+@tree.command(name='owner-gag-puppy', description='Strap down puppy ⛓️')
 async def cmd_gag(i: discord.Interaction):
     if not await owner_only(i): return
     await i.response.send_message(embed=make_embed(
@@ -242,24 +242,24 @@ async def cmd_guide(i: discord.Interaction):
     if is_o:
         e = discord.Embed(title='👑 Owner Commands', color=PINK)
         e.add_field(name='🎀 Reward', value=(
-            '`/give-puppy-headpats` — Give puppy gentle headpats\n'
-            '`/cuddles` — Cuddle puppy close\n'
-            '`/kiss-puppy-on-forehead` — Kiss puppy on the forehead\n'
-            '`/lift-puppy-like-simba` — Lift puppy like Simba\n'
-            '`/give-puppy-treats` — Give puppy a treat\n'
-            '`/cuddled-sleep` — Cuddle up to sleep together'
+            '`/owner-give-puppy-headpats` — Give puppy gentle headpats\n'
+            '`/owner-cuddles` — Cuddle puppy close\n'
+            '`/owner-kiss-puppy-on-forehead` — Kiss puppy on the forehead\n'
+            '`/owner-lift-puppy-like-simba` — Lift puppy like Simba\n'
+            '`/owner-give-puppy-treats` — Give puppy a treat\n'
+            '`/owner-cuddled-sleep` — Cuddle up to sleep together'
         ), inline=False)
         e.add_field(name='🎾 Play', value=(
-            '`/order-puppy-to-fetch` — Throw the ball for puppy\n'
-            '`/order-puppy-to-roll` — Tell puppy to roll over'
+            '`/owner-order-puppy-to-fetch` — Throw the ball for puppy\n'
+            '`/owner-order-puppy-to-roll` — Tell puppy to roll over'
         ), inline=False)
         e.add_field(name='💸 Findom', value=(
             '`/order-puppy-to-send-money <amount>` — Make puppy send tribute'
         ), inline=False)
         e.add_field(name='⛓️ Femdom', value=(
-            '`/cage-puppy` — Cage the puppy\n'
-            '`/uncage-puppy` — Release puppy from the cage\n'
-            '`/gag-puppy` — Strap down puppy'
+            '`/owner-cage-puppy` — Cage the puppy\n'
+            '`/owner-uncage-puppy` — Release puppy from the cage\n'
+            '`/owner-gag-puppy` — Strap down puppy'
         ), inline=False)
 
     else:
