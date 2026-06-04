@@ -42,6 +42,8 @@ GIFS = {
     'Puppy_Rolls':               gif('Puppy_Rolls'),
     'Puppy_Eats_Treats':         gif('Puppy_Eats_Treats'),
     'Puppy_Sends_Money':         gif('Puppy_Sends_Money'),
+    'Good_Boy':                  gif('Good_Boy'),
+    'Minnie_Minnie':             gif('Minnie_Minnie'),
 }
 
 PINK = 0xFFB6C1
@@ -130,6 +132,14 @@ async def cmd_sleep(i: discord.Interaction):
         f'💤 {owner(i)} and {puppy(i)} are cuddled up fast asleep 🌙',
         'Cuddled_Sleep'))
 
+
+@tree.command(name='owner-good-boy', description='Tell puppy they are a good boy 🌟')
+async def cmd_good_boy(i: discord.Interaction):
+    if not await owner_only(i): return
+    await i.response.send_message(embed=make_embed(
+        f'🌟 {owner(i)} says: Good boy, {puppy(i)}! 🐾✨',
+        'Good_Boy'))
+
 # ── OWNER — Play ──────────────────────────────────────────
 
 @tree.command(name='owner-order-puppy-to-fetch', description='Throw the ball for puppy 🎾')
@@ -187,6 +197,14 @@ async def cmd_pcuddle(i: discord.Interaction):
     await i.response.send_message(embed=make_embed(
         f'🐾 {puppy(i)} cuddles up close to {owner(i)} 💕',
         'Cuddles'))
+
+
+@tree.command(name='puppy-minnie-minnie', description='Puppy calls out for Minnie 🥺')
+async def cmd_minnie(i: discord.Interaction):
+    if not await puppy_only(i): return
+    await i.response.send_message(embed=make_embed(
+        f'🐾 {puppy(i)} says... Minnie! Minnie! 🥺',
+        'Minnie_Minnie'))
 
 # ── PUPPY — Play ──────────────────────────────────────────
 
@@ -247,7 +265,8 @@ async def cmd_guide(i: discord.Interaction):
             '`/owner-kiss-puppy-on-forehead` — Kiss puppy on the forehead\n'
             '`/owner-lift-puppy-like-simba` — Lift puppy like Simba\n'
             '`/owner-give-puppy-treats` — Give puppy a treat\n'
-            '`/owner-cuddled-sleep` — Cuddle up to sleep together'
+            '`/owner-cuddled-sleep` — Cuddle up to sleep together\n'
+            '`/owner-good-boy` — Tell puppy they are a good boy'
         ), inline=False)
         e.add_field(name='🎾 Play', value=(
             '`/owner-order-puppy-to-fetch` — Throw the ball for puppy\n'
@@ -265,7 +284,8 @@ async def cmd_guide(i: discord.Interaction):
     else:
         e = discord.Embed(title='🐾 Puppy Commands', color=PINK)
         e.add_field(name='🎀 Reward', value=(
-            '`/puppy-cuddles` — Cuddle back against Owner'
+            '`/puppy-cuddles` — Cuddle back against Owner\n'
+            '`/puppy-minnie-minnie` — Call out for Minnie'
         ), inline=False)
         e.add_field(name='🎾 Play', value=(
             '`/puppy-fetches` — Fetch the ball for Owner\n'
