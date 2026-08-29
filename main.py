@@ -32,6 +32,7 @@ GIFS = {
     'Lift_Puppy_Like_Simba':     gif('Lift_Puppy_Like_Simba'),
     'Give_Puppy_Treats':         gif('Give_Puppy_Treats'),
     'Cuddled_Sleep':             gif('Cuddled_Sleep'),
+    'Rocks_Puppy':               gif('Rocks_Puppy'),
     'Order_Puppy_To_Fetch':      gif('Order_Puppy_To_Fetch'),
     'Order_Puppy_To_Roll':       gif('Order_Puppy_To_Roll'),
     'Order_Puppy_To_Send_Money': gif('Order_Puppy_To_Send_Money'),
@@ -131,6 +132,13 @@ async def cmd_sleep(i: discord.Interaction):
     await i.response.send_message(embed=make_embed(
         f'💤 {owner(i)} and {puppy(i)} are cuddled up fast asleep 🌙',
         'Cuddled_Sleep'))
+
+@tree.command(name='owner-rocks-puppy', description='Rock puppy to sleep 💤')
+async def cmd_rocks(i: discord.Interaction):
+    if not await owner_only(i): return
+    await i.response.send_message(embed=make_embed(
+        'Mommy Minnie rocks her baby puppy to sleep. Such a good baby.',
+        'Rocks_Puppy'))
 
 
 @tree.command(name='owner-good-boy', description='Tell puppy they are a good boy 🌟')
@@ -266,6 +274,7 @@ async def cmd_guide(i: discord.Interaction):
             '`/owner-lift-puppy-like-simba` — Lift puppy like Simba\n'
             '`/owner-give-puppy-treats` — Give puppy a treat\n'
             '`/owner-cuddled-sleep` — Cuddle up to sleep together\n'
+            '`/owner-rocks-puppy` — Rock puppy to sleep\n'
             '`/owner-good-boy` — Tell puppy they are a good boy'
         ), inline=False)
         e.add_field(name='🎾 Play', value=(
